@@ -1,0 +1,25 @@
+<div class="mdl-grid" data-infinite-scroll
+         debounce
+         [infiniteScrollDistance]="scrollDistance"
+         [infiniteScrollThrottle]="throttle"
+         (scrolled)="onScroll()">
+    <template ngFor [ngForOf]="products" let-product>
+        <div class="demo-card-image mdl-cell mdl-card mdl-shadow--2dp" [ngStyle]="{'background-image': 'url(' + product.imageUrl + ')'}">
+            <div class="mdl-card__title mdl-card--expand">
+                <h4 class="mdl-card__title-text">₹{{product.salePrice}}</h4>
+            </div>
+            <div class="mdl-card__media">
+                <!--<img src="{{product.imageUrl}}">-->
+            </div>            
+            <div class="mdl-card__supporting-text">
+                <!--{{product.title}}-->
+            </div>
+            <div class="mdl-card__actions mdl-card--border">
+            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                {{product.title }}
+            </a>
+            </div>
+        </div>
+    </template>                             
+</div>
+<!--grid list content end -->              
