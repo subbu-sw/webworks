@@ -5,7 +5,7 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class ProductService {
-  private productsUrl = 'http://api.shortlyst.com/v1/products?index=0&limit=15&lowPriceFilter=0&highPriceFilter=0&discountFilter=0&trueDealFilter=false&mode=lite&apikey=4df6e9866e704496c48abfdf772f6c6e';
+  private productsUrl = 'http://api.shortlyst.com/v1/products?lowPriceFilter=0&highPriceFilter=0&discountFilter=0&trueDealFilter=false&mode=lite&apikey=4df6e9866e704496c48abfdf772f6c6e';
   
   constructor(private http: Http) { }
 
@@ -60,11 +60,12 @@ extractCategoryFacets(response): any[] {
 extractProducts(response): any[] {
   let body = response.json()
   let products = []
+  // console.log('getProducts return='+JSON.stringify(body["productList"]))
   return body["productList"];
 } 
 
-  getProducts(): Promise<any[]> {
-    return this.http.get(this.productsUrl)
+  getProducts(start,limit): Promise<any[]> {
+    return this.http.get(this.productsUrl+'&index='+start+'&limit='+limit)
               .toPromise()
               .then(response => this.extractProducts(response))
               .catch(this.handleError);

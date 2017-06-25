@@ -1,8 +1,4 @@
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header" data-infinite-scroll
-         debounce
-         [infiniteScrollDistance]="scrollDistance"
-         [infiniteScrollThrottle]="throttle"
-         (scrolled)="onScroll()">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
       <div class="android-header mdl-layout__header mdl-layout__header--waterfall">
         <div class="mdl-layout__header-row">
           <span class="android-title mdl-layout-title">
@@ -42,28 +38,14 @@
           <img class="android-logo-image" src="assets/android-logo-white.png">
         </span>
         <app-category-facets>Loading...</app-category-facets>
-        <!--<nav class="mdl-navigation">-->
-          <!--<a class="mdl-navigation__link mdl-typography--text-uppercase" href="" *ngFor = "let category of topCategoryFacets">{{category.name}}</a>-->
-          <!--<div class="android-drawer-separator"></div>-->
-          <!--<span class="mdl-navigation__link" href="">Versions</span>-->
-          <!--<a class="mdl-navigation__link" href="">Lollipop 5.0</a>-->
-        <!--</nav>-->
       </div>
   
       <main class="mdl-layout__content">
-        <div class="mdl-grid" data-infinite-scroll
-         debounce
-         [infiniteScrollDistance]="scrollDistance"
-         [infiniteScrollThrottle]="throttle"
-         (scrolled)="onScroll()">
+        <div class="mdl-grid">
           <div class="mdl-cell mdl-cell--2-col">
             Two cols
           </div>
-          <div class="mdl-cell mdl-cell--10-col" data-infinite-scroll
-         debounce
-         [infiniteScrollDistance]="scrollDistance"
-         [infiniteScrollThrottle]="throttle"
-         (scrolled)="onScroll()">
+          <div class="mdl-cell mdl-cell--10-col">
             <app-product-grid>Loading...</app-product-grid>
 <!--grid list content end -->            
           </div>

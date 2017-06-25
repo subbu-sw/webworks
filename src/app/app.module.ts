@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpModule }    from '@angular/http';
 
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+// import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppComponent } from './app.component';
 import { GenderFacetsComponent } from './gender-facets/gender-facets.component';
@@ -27,4 +27,4 @@ import { ProductGridComponent } from './product-grid/product-grid.component';
 })
 export class AppModule { }
 
-platformBrowserDynamic().bootstrapModule(AppModule);
+// platformBrowserDynamic().bootstrapModule(AppModule);
