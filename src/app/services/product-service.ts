@@ -41,7 +41,7 @@ extractCategoryFacets(response): any[] {
             console.log("facet.name="+facet.name)
             let silhouette_values = facet.value;
             for (let silhouette_value in silhouette_values) {
-                categories_facets.push({"name":silhouette_value})
+                categories_facets.push({"name":silhouette_value, "count":silhouette_values[silhouette_value]})
             }
         }
     }
@@ -64,8 +64,8 @@ extractProducts(response): any[] {
   return body["productList"];
 } 
 
-  getProducts(start,limit): Promise<any[]> {
-    return this.http.get(this.productsUrl+'&index='+start+'&limit='+limit)
+  getProducts(start,limit,categoryName): Promise<any[]> {
+    return this.http.get(categoryName != undefined  && categoryName != null && categoryName.length > 0 ?this.productsUrl+'&index='+start+'&limit='+limit+'&silhouetteFilter='+categoryName:this.productsUrl+'&index='+start+'&limit='+limit)
               .toPromise()
               .then(response => this.extractProducts(response))
               .catch(this.handleError);
