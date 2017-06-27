@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params }   from '@angular/router';
 import { Location }                 from '@angular/common';
+import { Router } from '@angular/router';
 
 import 'rxjs/add/operator/switchMap';
 
@@ -15,13 +16,14 @@ export class CategoryPageComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private location: Location
+    private location: Location,
+    private router:Router
   ) { }
 
   ngOnInit(): void {
-    console.log('inside category page init')
-    console.log(JSON.stringify(this.route.params));
-    console.log(this.route.params['_value']['category']);
-    this.categoryName = this.route.params['_value']['category'];
+    this.categoryName = decodeURIComponent(this.route.params['_value']['category']);
+  }
+  goBack(): void {
+    this.router.navigateByUrl('/home')
   }
 }

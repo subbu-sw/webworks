@@ -14,8 +14,7 @@ import { HomeComponent } from './home/home.component';
 
 import { AppRoutingModule }     from './app-routing.module';
 import { CategoryPageComponent } from './category-page/category-page.component';
-
-
+import { UrlEncodePipe } from './pipes/url-encode.pipe';
 
 @NgModule({
   declarations: [
@@ -24,7 +23,8 @@ import { CategoryPageComponent } from './category-page/category-page.component';
     CategoryFacetsComponent,
     ProductGridComponent,
     HomeComponent,
-    CategoryPageComponent
+    CategoryPageComponent,
+    UrlEncodePipe
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,5 @@
 <nav class="mdl-navigation">
     <a class="android-navigation__link mdl-navigation__link mdl-typography--text-uppercase" href="">categories</a>
     <div class="android-drawer-separator"></div>
-    <a class="android-navigation__link mdl-navigation__link mdl-typography--font-thin" href="/categories/{{category.name}}" *ngFor = "let category of categoryFacets">{{category.name}} ({{category.count}})</a>
+    <a class="android-navigation__link mdl-navigation__link mdl-typography--font-thin" href="/categories/{{category.name | urlEncode}}" *ngFor = "let category of categoryFacets">{{category.name}} ({{category.count}})</a>
 </nav>

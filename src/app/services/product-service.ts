@@ -65,7 +65,7 @@ extractProducts(response): any[] {
 } 
 
   getProducts(start,limit,categoryName): Promise<any[]> {
-    return this.http.get(categoryName != undefined  && categoryName != null && categoryName.length > 0 ?this.productsUrl+'&index='+start+'&limit='+limit+'&silhouetteFilter='+categoryName:this.productsUrl+'&index='+start+'&limit='+limit)
+    return this.http.get(categoryName != undefined  && categoryName != null && categoryName.length > 0 ?this.productsUrl+'&index='+start+'&limit='+limit+'&silhouetteFilter='+encodeURIComponent(categoryName):this.productsUrl+'&index='+start+'&limit='+limit)
               .toPromise()
               .then(response => this.extractProducts(response))
               .catch(this.handleError);

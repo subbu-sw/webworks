@@ -20,8 +20,6 @@ export class ProductGridComponent implements OnInit {
 
   ngOnInit() {
     this.getProducts();
-    console.log('ngOnInit inside productgrid!!')
-    console.log('categoryName='+ this.categoryName)
   }
 
   getProducts(): void {
